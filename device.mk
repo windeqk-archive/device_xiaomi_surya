@@ -156,6 +156,7 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils \
     qti_telephony_utils.xml \
     telephony-ext \
+    TelephonyOverlay
 
 PRODUCT_BOOT_JARS += \
     telephony-ext \
