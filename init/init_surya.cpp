@@ -79,11 +79,26 @@ void set_device_props(const string brand, const string device,
     }
 }
 
+void set_device_fp() {
+    // list of partitions to override props
+    string source_partitions[] = { "", "bootimage", "odm.", "product.",
+                                   "system", "system_ext.", "vendor." };
+
+    string fp = "Xiaomi/dipper/dipper:8.1.0/OPM1.171019.011/V9.5.5.0.OEAMIFA:user/release-keys";
+    string desc = "dipper-user 8.1.0 OPM1.171019.011 V9.5.5.0.OEAMIFA release-keys";
+
+    for (const string &source : source_partitions) {
+        set_ro_build_prop(source, "fingerprint", fp, false);
+        set_ro_build_prop(source, "description", desc, false);
+    }
+}
+
 void vendor_load_properties()
 {
     /*
      * Detect device and configure properties
      */
+
     if (GetProperty("ro.boot.hwname", "") == "karna") { // POCO X3 (India)
         set_device_props("POCO", "karna", "POCO X3", "karna_in");
         property_override("ro.product.mod_device", "surya_in_global");
@@ -93,6 +108,7 @@ void vendor_load_properties()
     }
 
     //Safetynet workarounds
+    set_device_fp();
     property_override("ro.oem_unlock_supported", "0");
     property_override("ro.boot.verifiedbootstate", "green");
 }
