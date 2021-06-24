@@ -16,17 +16,17 @@
 
 # Inherit framework first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from surya device
 $(call inherit-product, device/xiaomi/surya/device.mk)
 
-# Inherit from common WaveOS configuration
+# Inherit from common NezukoOS configuration
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/wave/configs/common.mk)
+$(call inherit-product, vendor/nezuko/config/common_full_phone.mk)
 
 # Device identifier
-PRODUCT_NAME := wave_surya
+PRODUCT_NAME := nezuko_surya
 PRODUCT_DEVICE := surya
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X3
@@ -42,3 +42,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="$(BUILD_DESCRIPTION)"
+
+# Nezuko OS Properties
+CUSTOM_BUILD_TYPE := UNOFFICIAL
+NEZUKO_MAINTAINER := Windeqk
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.nezuko.cpu=SD732G
