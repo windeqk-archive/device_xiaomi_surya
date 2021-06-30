@@ -25,13 +25,17 @@ $(call inherit-product, device/xiaomi/surya/device.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 $(call inherit-product, vendor/nezuko/config/common_full_phone.mk)
 
+# Gapps
+TARGET_GAPPS_ARCH := arm64
+TARGET_USES_AOSP_RECOVERY := true
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
 # Device identifier
 PRODUCT_NAME := nezuko_surya
 PRODUCT_DEVICE := surya
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X3
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Nezuko OS Properties
 NEZUKO_MAINTAINER := Windeqk
