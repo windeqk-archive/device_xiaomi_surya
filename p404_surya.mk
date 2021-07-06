@@ -21,9 +21,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from surya device
 $(call inherit-product, device/xiaomi/surya/device.mk)
 
-# Inherit from common NezukoOS configuration
+# Inherit some common P404 stuff
+$(call inherit-product, vendor/404/configs/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/nezuko/config/common_full_phone.mk)
 
 # Gapps
 TARGET_GAPPS_ARCH := arm64
@@ -31,14 +31,8 @@ TARGET_USES_AOSP_RECOVERY := true
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Device identifier
-PRODUCT_NAME := nezuko_surya
+PRODUCT_NAME := p404_surya
 PRODUCT_DEVICE := surya
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO X3
 PRODUCT_MANUFACTURER := Xiaomi
-
-# Nezuko OS Properties
-NEZUKO_MAINTAINER := Windeqk
-NEZUKO_DONATE= https://www.buymeacoffee.com/windeqk
-PRODUCT_PRODUCT_PROPERTIES += \
-  ro.nezuko.cpu=SD732G
