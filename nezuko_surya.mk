@@ -24,6 +24,12 @@ $(call inherit-product, device/xiaomi/surya/device.mk)
 # Inherit from common NezukoOS configuration
 $(call inherit-product, vendor/nezuko/config/common_full_phone.mk)
 
+# Gapps
+TARGET_INCLUDE_GAPPS := true
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_INCLUDE_GOOGLE_RECORDER := true
+
 # Device identifier
 PRODUCT_NAME := nezuko_surya
 PRODUCT_DEVICE := surya
